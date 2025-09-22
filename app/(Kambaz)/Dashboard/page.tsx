@@ -19,24 +19,24 @@ export default function Dashboard() {
           </Link>
         </div>
         <div className="wd-dashboard-course">
-          <Link href="/Courses/1234" className="wd-dashboard-course-link">
-            <Image alt="" src="/images/reactjs.jpg" width={200} height={150} />
+          <Link href="/Courses/456" className="wd-dashboard-course-link">
+            <Image alt="" src="/images/node.jpg" width={200} height={150} />
             <div>
-              <h5> CS1234 React JS </h5>
+              <h5> CS456 Node JS </h5>
               <p className="wd-dashboard-course-title">
-                Full Stack software developer
+                Back end software developer
               </p>
               <button> Go </button>
             </div>
           </Link>
         </div>
         <div className="wd-dashboard-course">
-          <Link href="/Courses/1234" className="wd-dashboard-course-link">
-            <Image alt="" src="/images/reactjs.jpg" width={200} height={150} />
+          <Link href="/Courses/678" className="wd-dashboard-course-link">
+            <Image alt="" src="/images/mongo.webp" width={200} height={150} />
             <div>
-              <h5> CS1234 React JS </h5>
+              <h5> CS678 MongoDB </h5>
               <p className="wd-dashboard-course-title">
-                Full Stack software developer
+                NoSQL Database
               </p>
               <button> Go </button>
             </div>
