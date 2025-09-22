@@ -69,6 +69,9 @@ export default function Lab1() {
                 Your favorite books (in no particular order)
                 <ul id="wd-your-books">
                 {/* complete on your own */}
+                    <li>Harry Potter: The Order of Phoenix</li>
+                    <li>The Alchemist</li>
+                    <li>The Girl with the Dragon Tatoo</li>
                 </ul>
             </div>
             <div id="wd-tables">
@@ -103,45 +106,45 @@ export default function Lab1() {
                     </tr>
                     <tr>
                         <td>Q4</td>
-                        <td>JavaScript</td>
+                        <td>React</td>
                         <td>2/17/21</td>
                         <td>95</td>
                     </tr>
                     <tr>
                         <td>Q5</td>
-                        <td>JavaScript</td>
+                        <td>TypeScript</td>
                         <td>2/17/21</td>
                         <td>95</td>
                     </tr>
                     <tr>
                         <td>Q6</td>
-                        <td>JavaScript</td>
+                        <td>Node</td>
                         <td>2/17/21</td>
-                        <td>95</td>
+                        <td>86</td>
                     </tr>
                     <tr>
                         <td>Q7</td>
-                        <td>JavaScript</td>
+                        <td>Express</td>
                         <td>2/17/21</td>
-                        <td>95</td>
+                        <td>85</td>
                     </tr>
                     <tr>
                         <td>Q8</td>
-                        <td>JavaScript</td>
+                        <td>MongoDB</td>
                         <td>2/17/21</td>
-                        <td>95</td>
+                        <td>85</td>
                     </tr>
                     <tr>
                         <td>Q9</td>
-                        <td>JavaScript</td>
+                        <td>Python</td>
                         <td>2/17/21</td>
-                        <td>95</td>
+                        <td>90</td>
                     </tr>
                     <tr>
                         <td>Q10</td>
-                        <td>JavaScript</td>
+                        <td>Java</td>
                         <td>2/17/21</td>
-                        <td>95</td>
+                        <td>99</td>
                     </tr>
                 </tbody>
                 <tfoot>
