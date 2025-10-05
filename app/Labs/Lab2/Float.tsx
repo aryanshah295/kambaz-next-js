@@ -1,5 +1,5 @@
 import "./index.css";
-export default function() {
+export default function Float() {
     return (
         <div>
             <div id="wd-float-divs">
