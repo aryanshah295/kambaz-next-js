@@ -3,7 +3,7 @@ import { Container, FormControl, FormSelect } from "react-bootstrap";
 
 export default function Profile() {
   return (
-    <Container id="wd-profile-screen" style={{ width: "300px" }}>
+    <Container id="wd-profile-screen" style={{ width: "300px", marginLeft: 0, marginRight: "auto"  }}>
       <h3>Profile</h3>
       <FormControl
         id="wd-username"

@@ -1,6 +1,7 @@
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from "react-bootstrap";
 import { FaPlus } from "react-icons/fa6";
 import GreenCheckmark from "./GreenCheckmark";
+import BlockedIcon from "./BlockedIcon";
 export default function ModulesControls() {
  return (
    <div id="wd-modules-controls" className="text-nowrap">
@@ -21,6 +22,12 @@ export default function ModulesControls() {
          </DropdownItem>
          <DropdownItem id="wd-publish-modules-only">
            <GreenCheckmark /> Publish modules only
+         </DropdownItem>
+         <DropdownItem id="wd-unpublish-all-modules">
+           <BlockedIcon /> Unpublish all modules
+         </DropdownItem>
+         <DropdownItem id="wd-unpublish-modules-only">
+           <BlockedIcon /> Unpublish modules only
          </DropdownItem>
          {/* Create two more items with IDs wd-unpublish-all-modules-and-items and wd-unpublish-modules-only with
              labels Unpublish all modules and items and Unpublish modules only */}

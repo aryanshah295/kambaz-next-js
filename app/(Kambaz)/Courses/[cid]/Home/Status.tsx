@@ -21,5 +21,15 @@ export default function CourseStatus() {
        <BiImport className="me-2 fs-5" /> Import Existing Content </Button>
      <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
        <LiaFileImportSolid className="me-2 fs-5" /> Import from Commons </Button>
+       <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+       <LiaFileImportSolid className="me-2 fs-5" /> Choose Home Page </Button>
+       <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+       <LiaFileImportSolid className="me-2 fs-5" /> View Course Stream </Button>
+       <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+       <LiaFileImportSolid className="me-2 fs-5" /> New Announcement </Button>
+       <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+       <LiaFileImportSolid className="me-2 fs-5" /> New Analytics </Button>
+       <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+       <LiaFileImportSolid className="me-2 fs-5" /> View Course Notifications </Button>
      {/* Complete the rest of the buttons */}
    </div> );}

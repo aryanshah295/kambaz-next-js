@@ -7,6 +7,7 @@ export default function AccountNavigation() {
         </Link>
       <Link href="Profile" id="wd-profile-link" className="list-group-item text-danger border-0">Profile</Link>
     </div>
-  );}
+  );
+}
 
 
