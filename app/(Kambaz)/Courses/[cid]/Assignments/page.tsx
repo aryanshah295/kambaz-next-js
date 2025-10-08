@@ -10,7 +10,7 @@ import { MdAssignment } from "react-icons/md";
 
 export default function Assignments() {
   return (
-    <Container id="wd-assignments">
+    <div id="wd-assignments">
       <AssignmentControls />
       <br />
       <br />
@@ -119,6 +119,6 @@ export default function Assignments() {
           </ListGroup>
         </ListGroup.Item>
       </ListGroup>
-    </Container>
+    </div>
   );
 }
