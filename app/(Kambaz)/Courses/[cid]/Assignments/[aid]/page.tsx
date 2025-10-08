@@ -2,7 +2,7 @@ import { Button, Col, FormControl, FormLabel, FormSelect, FormCheck, Row, Contai
 
 export default function AssignmentEditor() {
   return (
-    <Container id="wd-assignments-editor">
+    <div id="wd-assignments-editor">
       <FormLabel htmlFor="wd-name">Assignment Name</FormLabel>
       <FormControl
         id="wd-name"
@@ -171,6 +171,6 @@ export default function AssignmentEditor() {
           Save
         </Button>
       </div>
-    </Container>
+    </div>
   );
 }
