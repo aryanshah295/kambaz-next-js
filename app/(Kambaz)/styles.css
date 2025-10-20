@@ -1,17 +1,26 @@
-body   {
+body {
   margin: 0;
   padding: 0;
 }
 
 body * {
-  font-family: Arial,
-  Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
 }
 
 @media (min-width: 768px) {
   #wd-kambaz .wd-main-content-offset {
     padding-left: 140px !important;
   }
+}
+.wd-dashboard-course {
+  width: 300px;
+}
+#wd-dashboard-title {
+  font-size: 3rem;
+}
+.wd-dashboard-course-description {
+  height: 100px;
 }
 .list-group.wd > .list-group-item.active {
   color: black;
@@ -30,6 +39,20 @@ body * {
 .list-group-item {
   --bs-list-group-border-color: gray;
 }
-.wd-lesson {
-  border-left: 3px solid green !important;
+.wd-lesson,
+.wd-assignment-item {
+  border-left: 5px solid green !important;
+}
+@media (min-width: 768px) {
+  .wd-assignment-details-label {
+    text-align: right;
+  }
+}
+
+#wd-courses-title span {
+  font-size: 2rem;
+}
+
+#wd-dashboard-published {
+  font-size: 1.5rem;
 }

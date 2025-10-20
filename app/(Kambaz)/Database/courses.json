@@ -1,0 +1,84 @@
+[
+    {
+        "_id": "CS101",
+        "name": "Introduction to Computer Science",
+        "number": "CS1010",
+        "startDate": "2023-01-10",
+        "endDate": "2023-05-15",
+        "department": "D200",
+        "credits": 4,
+        "description": "This course introduces the fundamental principles of computer science and programming. Students will explore core topics such as algorithms, problem-solving techniques, data types, control structures, and basic software design. Through hands-on programming assignments, learners will gain experience writing, testing, and debugging code while developing logical thinking skills essential for future coursework in computer science."
+    },
+    {
+        "_id": "CS102",
+        "name": "Programming Fundamentals in Java",
+        "number": "CS1020",
+        "startDate": "2023-01-10",
+        "endDate": "2023-05-15",
+        "department": "D200",
+        "credits": 3,
+        "description": "This course provides a comprehensive introduction to object-oriented programming using Java. Students will learn core concepts including classes, objects, methods, inheritance, polymorphism, and exception handling. Emphasis is placed on writing clean, efficient, and well-structured code, preparing students for advanced software development and computer science study."
+    },
+    {
+        "_id": "CS103",
+        "name": "Data Structures and Algorithms",
+        "number": "CS2030",
+        "startDate": "2023-01-10",
+        "endDate": "2023-05-15",
+        "department": "D200",
+        "credits": 4,
+        "description": "This course explores essential data structures such as arrays, linked lists, stacks, queues, trees, and hash tables, as well as core algorithms for searching and sorting. Students will learn how to analyze algorithm performance using Big-O notation and apply efficient structures to solve computational problems. The course emphasizes both theoretical understanding and practical implementation skills."
+    },
+    {
+        "_id": "CS104",
+        "name": "Introduction to Computer Systems",
+        "number": "CS2200",
+        "startDate": "2023-01-10",
+        "endDate": "2023-05-15",
+        "department": "D201",
+        "credits": 3,
+        "description": "This course introduces students to the organization and operation of computer systems, covering topics such as binary representation, machine architecture, memory management, and the role of operating systems. Students gain an understanding of how hardware and software interact and how programs execute at a low level within a computer system."
+    },
+    {
+        "_id": "CS105",
+        "name": "Discrete Mathematics for Computing",
+        "number": "CS2300",
+        "startDate": "2023-01-10",
+        "endDate": "2023-05-15",
+        "department": "D201",
+        "credits": 3,
+        "description": "Discrete Mathematics introduces the foundational mathematical concepts used throughout computer science. Topics include logic, sets, functions, combinatorics, relations, graphs, and proof techniques. Students will develop analytical reasoning skills essential for algorithms, cryptography, and theoretical computer science."
+    },
+    {
+        "_id": "CS106",
+        "name": "Database Systems",
+        "number": "CS2400",
+        "startDate": "2023-01-10",
+        "endDate": "2023-05-15",
+        "department": "D201",
+        "credits": 3,
+        "description": "This course covers the principles of database design and management, including relational models, SQL, normalization, and transactions. Students will learn how to design efficient databases, query data using SQL, and understand how modern database systems support large-scale applications. Hands-on labs provide experience with real database environments."
+    },
+    {
+        "_id": "CS107",
+        "name": "Web Development Fundamentals",
+        "number": "CS2500",
+        "startDate": "2023-01-10",
+        "endDate": "2023-05-15",
+        "department": "D202",
+        "credits": 3,
+        "description": "This course introduces students to the core technologies of web development, including HTML, CSS, and JavaScript. Students will learn how modern web applications are structured, styled, and made interactive. Emphasis is on building responsive, accessible, and user-friendly websites while understanding the fundamentals of client-side programming.",
+        "author": "654f9ec2ea7ead465908d1e3"
+    },
+    {
+        "_id": "CS108",
+        "name": "Human-Computer Interaction",
+        "number": "CS2600",
+        "startDate": "2023-01-10",
+        "endDate": "2023-05-15",
+        "department": "D202",
+        "credits": 4,
+        "description": "This course examines the principles of designing intuitive and user-centered computer interfaces. Students will study usability, interaction models, user experience design, and evaluation techniques. Through case studies and design projects, they will explore how people interact with technology and how to create systems that are both functional and engaging.",
+        "author": "654f9ec2ea7ead465908d1e3"
+    }
+]

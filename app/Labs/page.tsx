@@ -3,6 +3,12 @@ export default function Labs() {
  return (
    <div id="wd-labs">
     <h1>Name: Aryan Rakeshbhai Shah</h1>
+    <strong>Source Code: </strong>{" "}
+      <a
+        href="https://github.com/aryanshah295/kambaz-next-js"
+      >
+        GitHub Repository
+      </a>
      <h1>Labs</h1>
      <ul>
        <li>
