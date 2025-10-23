@@ -23,7 +23,7 @@ const formatDateToMonthDayYear = (dateString: string) => {
 export default function Assignments() {
   const { cid, aid } = useParams();
   return (
-    <Container id="wd-assignments">
+    <div id="wd-assignments">
       <AssignmentsControls />
       <br />
       <br />
@@ -81,6 +81,6 @@ export default function Assignments() {
           </ListGroup>
         </ListGroup.Item>
       </ListGroup>
-    </Container>
+    </div>
   );
 }
