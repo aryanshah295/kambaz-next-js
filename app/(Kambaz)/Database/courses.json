@@ -1,84 +1,84 @@
 [
     {
-        "_id": "CS101",
-        "name": "Introduction to Computer Science",
-        "number": "CS1010",
+        "_id": "RS101",
+        "name": "Rocket Propulsion",
+        "number": "RS4550",
         "startDate": "2023-01-10",
         "endDate": "2023-05-15",
-        "department": "D200",
+        "department": "D123",
         "credits": 4,
-        "description": "This course introduces the fundamental principles of computer science and programming. Students will explore core topics such as algorithms, problem-solving techniques, data types, control structures, and basic software design. Through hands-on programming assignments, learners will gain experience writing, testing, and debugging code while developing logical thinking skills essential for future coursework in computer science."
+        "description": "This course provides an in-depth study of the fundamentals of rocket propulsion, covering topics such as propulsion theory, engine types, fuel chemistry, and the practical applications of rocket technology. Designed for students with a strong background in physics and engineering, the course includes both theoretical instruction and hands-on laboratory work"
     },
     {
-        "_id": "CS102",
-        "name": "Programming Fundamentals in Java",
-        "number": "CS1020",
+        "_id": "RS102",
+        "name": "Aerodynamics",
+        "number": "RS4560",
         "startDate": "2023-01-10",
         "endDate": "2023-05-15",
-        "department": "D200",
+        "department": "D123",
         "credits": 3,
-        "description": "This course provides a comprehensive introduction to object-oriented programming using Java. Students will learn core concepts including classes, objects, methods, inheritance, polymorphism, and exception handling. Emphasis is placed on writing clean, efficient, and well-structured code, preparing students for advanced software development and computer science study."
+        "description": "This course offers a comprehensive exploration of aerodynamics, focusing on the principles and applications of airflow and its effects on flying objects. Topics include fluid dynamics, airfoil design, lift and drag forces, and the aerodynamic considerations in aircraft design. The course blends theoretical learning with practical applications, suitable for students pursuing a career in aeronautics or astronautics engineering."
     },
     {
-        "_id": "CS103",
-        "name": "Data Structures and Algorithms",
-        "number": "CS2030",
+        "_id": "RS103",
+        "name": "Spacecraft Design",
+        "number": "RS4570",
         "startDate": "2023-01-10",
         "endDate": "2023-05-15",
-        "department": "D200",
+        "department": "D123",
         "credits": 4,
-        "description": "This course explores essential data structures such as arrays, linked lists, stacks, queues, trees, and hash tables, as well as core algorithms for searching and sorting. Students will learn how to analyze algorithm performance using Big-O notation and apply efficient structures to solve computational problems. The course emphasizes both theoretical understanding and practical implementation skills."
+        "description": "This course delves into the principles and practices of spacecraft design, offering students a detailed understanding of the engineering and technology behind spacecraft systems. Key topics include spacecraft structure, propulsion, power systems, thermal control, and payload integration. Emphasizing both theoretical concepts and practical skills, the course prepares students for careers in the space industry, with a focus on innovative design and problem-solving in the context of current and future space missions"
     },
     {
-        "_id": "CS104",
-        "name": "Introduction to Computer Systems",
-        "number": "CS2200",
+        "_id": "RS104",
+        "name": "Organic Chemistry",
+        "number": "CH1230",
         "startDate": "2023-01-10",
         "endDate": "2023-05-15",
-        "department": "D201",
+        "department": "D134",
         "credits": 3,
-        "description": "This course introduces students to the organization and operation of computer systems, covering topics such as binary representation, machine architecture, memory management, and the role of operating systems. Students gain an understanding of how hardware and software interact and how programs execute at a low level within a computer system."
+        "description": "Organic Chemistry is an in-depth course that explores the structure, properties, composition, and reactions of organic compounds and materials. The course covers various topics including hydrocarbons, functional groups, stereochemistry, and organic synthesis techniques. Students will learn about the mechanisms of organic reactions, spectroscopic methods for structure determination, and the role of organic chemistry in biological systems. Emphasis is placed on problem-solving and laboratory skills, preparing students for advanced studies in chemistry, medicine, and related fields."
     },
     {
-        "_id": "CS105",
-        "name": "Discrete Mathematics for Computing",
-        "number": "CS2300",
+        "_id": "RS105",
+        "name": "Inorganic Chemistry",
+        "number": "CH1240",
         "startDate": "2023-01-10",
         "endDate": "2023-05-15",
-        "department": "D201",
+        "department": "D134",
         "credits": 3,
-        "description": "Discrete Mathematics introduces the foundational mathematical concepts used throughout computer science. Topics include logic, sets, functions, combinatorics, relations, graphs, and proof techniques. Students will develop analytical reasoning skills essential for algorithms, cryptography, and theoretical computer science."
+        "description": "Inorganic Chemistry focuses on the properties, structures, and behaviors of inorganic and organometallic compounds. This course covers a range of topics including coordination chemistry, metal complexes, bonding theories, symmetry, and crystal field theory. Students will also explore the role of inorganic chemistry in real-world applications such as catalysis, materials science, and bioinorganic processes. Laboratory work emphasizes synthesis and analysis of inorganic compounds, fostering a deeper understanding of theoretical concepts."
     },
     {
-        "_id": "CS106",
-        "name": "Database Systems",
-        "number": "CS2400",
+        "_id": "RS106",
+        "name": "Physical Chemistry",
+        "number": "CH1250",
         "startDate": "2023-01-10",
         "endDate": "2023-05-15",
-        "department": "D201",
+        "department": "D134",
         "credits": 3,
-        "description": "This course covers the principles of database design and management, including relational models, SQL, normalization, and transactions. Students will learn how to design efficient databases, query data using SQL, and understand how modern database systems support large-scale applications. Hands-on labs provide experience with real database environments."
+        "description": "Physical Chemistry merges the principles of physics and chemistry to understand the physical properties of molecules, the forces that act upon them, and the chemical reactions they undergo. Key topics include thermodynamics, kinetics, quantum mechanics, and spectroscopy. The course provides a comprehensive understanding of molecular behavior, reaction dynamics, and the application of mathematical methods in solving chemical problems. Labs focus on experimental techniques and data analysis, equipping students with skills necessary for research and advanced study in chemistry and related fields."
     },
     {
-        "_id": "CS107",
-        "name": "Web Development Fundamentals",
-        "number": "CS2500",
+        "_id": "RS107",
+        "name": "Ancient Languages and Scripts of Middle-earth",
+        "number": "ME101",
         "startDate": "2023-01-10",
         "endDate": "2023-05-15",
-        "department": "D202",
+        "department": "Languages",
         "credits": 3,
-        "description": "This course introduces students to the core technologies of web development, including HTML, CSS, and JavaScript. Students will learn how modern web applications are structured, styled, and made interactive. Emphasis is on building responsive, accessible, and user-friendly websites while understanding the fundamentals of client-side programming.",
+        "description": "This course offers an exploration of the ancient languages and scripts found throughout Middle-earth, including Elvish (Sindarin and Quenya), Dwarvish (Khuzdul), and the Black Speech of Mordor. Students will learn the historical and cultural contexts of these languages, their linguistic structures, and their usage in various inscriptions and texts. Emphasis is on understanding the philological aspects and the role of language in shaping Middle-earth's history and lore.",
         "author": "654f9ec2ea7ead465908d1e3"
     },
     {
-        "_id": "CS108",
-        "name": "Human-Computer Interaction",
-        "number": "CS2600",
+        "_id": "RS108",
+        "name": "Wizards, Elves, and Men: Inter-species Diplomacy in Middle-earth",
+        "number": "ME102",
         "startDate": "2023-01-10",
         "endDate": "2023-05-15",
-        "department": "D202",
+        "department": "Political Studies",
         "credits": 4,
-        "description": "This course examines the principles of designing intuitive and user-centered computer interfaces. Students will study usability, interaction models, user experience design, and evaluation techniques. Through case studies and design projects, they will explore how people interact with technology and how to create systems that are both functional and engaging.",
+        "description": "This course explores the complex relationships and diplomatic interactions among the different races of Middle-earth: Elves, Men, Dwarves, and Wizards. Topics include the study of historical alliances, conflicts, and the role of leadership and wisdom in maintaining peace. Students will engage in discussions and case studies on key events in Middle-earth's history, such as the Council of Elrond and the War of the Ring, to understand the principles of diplomacy and conflict resolution in a multi-species context.",
         "author": "654f9ec2ea7ead465908d1e3"
     }
 ]
