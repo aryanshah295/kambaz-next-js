@@ -1,17 +1,30 @@
-'use client';
+"use client";
 
 import Link from "next/link";
-import AssignmentControls from "./AssignmentControls";
+import AssignmentsControls from "./AssignmentControls";
 import { Badge, Container, ListGroup } from "react-bootstrap";
 import { BsGripVertical } from "react-icons/bs";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import IndvAssignmentControlButtons from "./IndvAssignmentControlButtons";
 import { MdAssignment } from "react-icons/md";
+import { useParams } from "next/navigation";
+
+import { assignments } from "../../../Database";
+
+const formatDateToMonthDayYear = (dateString: string) => {
+  const date = new Date(dateString); // Create a Date object from your date string
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+};
 
 export default function Assignments() {
+  const { cid, aid } = useParams();
   return (
-    <div id="wd-assignments">
-      <AssignmentControls />
+    <Container id="wd-assignments">
+      <AssignmentsControls />
       <br />
       <br />
       <br />
@@ -30,95 +43,44 @@ export default function Assignments() {
             </Badge>
           </div>
           <ListGroup className="wd-assignment-list rounded-0">
-            <ListGroup.Item className="wd-assignment-item p-3 ps-1">
-              <div className="d-flex align-items-center">
-                <BsGripVertical className="me-2 fs-3" />
-                <MdAssignment className="me-2 fs-3" />
-                <div className="flex-grow-1 p-1">
-                  <Link
-                    href="/Courses/1234/Assignments/123"
-                    className="text-decoration-none text-dark w-bold fs-5"
-                  >
-                    A1 - ENV + HTML
-                  </Link>
-                  <div className="mt-1">
-                    <span className="text-danger me-2">Multiple Modules</span>|
-                    Not available until May 6 at 12:00am | Due May 13 at 11:59pm
-                    | 100 pts
+            {assignments
+              .filter((assignment) => assignment.course === cid)
+              .map((assignment) => (
+                <ListGroup.Item
+                  key={assignment._id}
+                  className="wd-assignment-item p-3 ps-1"
+                >
+                  <div className="d-flex align-items-center">
+                    <BsGripVertical className="me-2 fs-3" />
+                    <MdAssignment className="me-2 fs-3" />
+                    <div className="flex-grow-1 p-1">
+                      <Link
+                        href={`/Courses/${cid}/Assignments/${assignment._id}`}
+                        className="text-decoration-none text-dark w-bold fs-5"
+                      >
+                        {assignment.title}
+                      </Link>
+                      <div className="mt-1">
+                        <span className="text-danger me-2">
+                          {assignment.modules
+                            ? assignment.modules.length > 1
+                              ? "Multiple Modules"
+                              : "Single Module"
+                            : "No Module"}
+                        </span>
+                        | Not available until
+                        {formatDateToMonthDayYear(assignment.availableDate)} |
+                        Due
+                        {formatDateToMonthDayYear(assignment.dueDate)} |
+                        {assignment.points} pts
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <IndvAssignmentControlButtons />
-              </div>
-            </ListGroup.Item>
-          </ListGroup>
-          <ListGroup className="wd-assignment-list rounded-0">
-            <ListGroup.Item className="wd-assignment-item p-3 ps-1">
-              <div className="d-flex align-items-center">
-                <BsGripVertical className="me-2 fs-3" />
-                <MdAssignment className="me-2 fs-3" />
-                <div className="flex-grow-1 p-1">
-                  <Link
-                    href="/Courses/1234/Assignments/234"
-                    className="text-decoration-none text-dark w-bold fs-5"
-                  >
-                    A2 - CSS + BOOTSTRAP
-                  </Link>
-                  <div className="mt-1">
-                    <span className="text-danger me-2">Multiple Modules</span>|
-                    Not available until Sep 6 at 12:00am | Due Sep 10 at 11:59pm
-                    | 100 pts
-                  </div>
-                </div>
-                <IndvAssignmentControlButtons />
-              </div>
-            </ListGroup.Item>
-          </ListGroup>
-          <ListGroup className="wd-assignment-list rounded-0">
-            <ListGroup.Item className="wd-assignment-item p-3 ps-1">
-              <div className="d-flex align-items-center">
-                <BsGripVertical className="me-2 fs-3" />
-                <MdAssignment className="me-2 fs-3" />
-                <div className="flex-grow-1 p-1">
-                  <Link
-                    href="/Courses/1234/Assignments/345"
-                    className="text-decoration-none text-dark w-bold fs-5"
-                  >
-                    A3 - JAVASCRIPT + REACT
-                  </Link>
-                  <div className="mt-1">
-                    <span className="text-danger me-2">Multiple Modules</span>|
-                    Not available until Sep 13 at 12:00am | Due Sep 17 at
-                    11:59pm | 100 pts
-                  </div>
-                </div>
-                <IndvAssignmentControlButtons />
-              </div>
-            </ListGroup.Item>
-          </ListGroup>
-          <ListGroup className="wd-assignment-list rounded-0">
-            <ListGroup.Item className="wd-assignment-item p-3 ps-1">
-              <div className="d-flex align-items-center">
-                <BsGripVertical className="me-2 fs-3" />
-                <MdAssignment className="me-2 fs-3" />
-                <div className="flex-grow-1 p-1">
-                  <Link
-                    href="/Courses/1234/Assignments/456"
-                    className="text-decoration-none text-dark w-bold fs-5"
-                  >
-                    A4 - NODE + EXPRESS
-                  </Link>
-                  <div className="mt-1">
-                    <span className="text-danger me-2">Multiple Modules</span>|
-                    Not available until Sep 20 at 12:00am | Due Sep 24 at
-                    11:59pm | 100 pts
-                  </div>
-                </div>
-                <IndvAssignmentControlButtons />
-              </div>
-            </ListGroup.Item>
+                </ListGroup.Item>
+              ))}
           </ListGroup>
         </ListGroup.Item>
       </ListGroup>
-    </div>
+    </Container>
   );
 }
