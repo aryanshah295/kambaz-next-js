@@ -1,56 +1,59 @@
-import Link from "next/link";
-import { Container, FormControl, FormSelect } from "react-bootstrap";
-
+"use client";
+import { redirect } from "next/dist/client/components/navigation";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setCurrentUser } from "../reducer";
+import { RootState } from "../../store";
+import { Button, FormControl } from "react-bootstrap";
 export default function Profile() {
-  return (
-    <Container id="wd-profile-screen" style={{ width: "300px", marginLeft: 0, marginRight: "auto"  }}>
-      <h3>Profile</h3>
-      <FormControl
-        id="wd-username"
-        defaultValue="alice"
-        placeholder="username"
-        className="mb-2"
-      />
-      <FormControl
-        id="wd-password"
-        defaultValue="123"
-        placeholder="password"
-        type="password"
-        className="mb-2"
-      />
-      <FormControl
-        id="wd-firstname"
-        defaultValue="Andis"
-        placeholder="First Name"
-        className="mb-2"
-      />
-      <FormControl
-        id="wd-lastname"
-        defaultValue="Rocks"
-        placeholder="Last Name"
-        className="mb-2"
-      />
-      <FormControl
-        id="wd-dob"
-        defaultValue="2000-01-01"
-        type="date"
-        className="mb-2"
-      />
-      <FormControl
-        id="wd-email"
-        defaultValue="andis@nu.com"
-        type="email"
-        className="mb-2"
-      />
-      <FormSelect id="wd-role" defaultValue="USER" className="mb-2">
-        <option value="USER">User</option>
-        <option value="ADMIN">Admin</option>
-        <option value="FACULTY">Faculty</option>
-        <option value="STUDENT">Student</option>
-      </FormSelect>
-      <Link href="/Account/Signin" className="btn btn-danger w-100">
-        Signout
-      </Link>
-    </Container>
-  );
-}
+ const [profile, setProfile] = useState<any>({});
+ const dispatch = useDispatch();
+ const { currentUser } = useSelector((state: RootState) => state.accountReducer);
+ const fetchProfile = () => {
+   if (!currentUser) return redirect("/Account/Signin");
+   setProfile(currentUser);
+ };
+ const signout = () => {
+   dispatch(setCurrentUser(null));
+   redirect("/Account/Signin");
+ };
+ useEffect(() => {
+   fetchProfile();
+ }, []);
+ return (
+   <div className="wd-profile-screen">
+     <h3>Profile</h3>
+     {profile && (
+       <div>
+         <FormControl id="wd-username" className="mb-2"
+           defaultValue={profile.username}
+           onChange={(e) => setProfile({ ...profile, username: e.target.value }) } />
+         <FormControl id="wd-password" className="mb-2"
+           defaultValue={profile.password}
+           onChange={(e) => setProfile({ ...profile, password: e.target.value }) } />
+         <FormControl id="wd-firstname" className="mb-2"
+           defaultValue={profile.firstName}
+           onChange={(e) => setProfile({ ...profile, firstName: e.target.value }) } />
+         <FormControl id="wd-lastname" className="mb-2"
+           defaultValue={profile.lastName}
+           onChange={(e) => setProfile({ ...profile, lastName: e.target.value }) } />
+         <FormControl id="wd-dob" className="mb-2" type="date"
+           defaultValue={profile.dob}
+           onChange={(e) => setProfile({ ...profile, dob: e.target.value })} />
+         <FormControl id="wd-email" className="mb-2"
+           defaultValue={profile.email}
+           onChange={(e) => setProfile({ ...profile, email: e.target.value })} />
+         <select className="form-control mb-2" id="wd-role" 
+           onChange={(e) => setProfile({ ...profile, role: e.target.value })} >
+           <option value="USER">User</option>
+           <option value="ADMIN">Admin</option>
+           <option value="FACULTY">Faculty</option>{" "}
+           <option value="STUDENT">Student</option>
+         </select>
+         <Button onClick={signout} className="w-100 mb-2" id="wd-signout-btn">
+           Sign out
+         </Button>
+       </div>
+     )}
+   </div>
+);}
