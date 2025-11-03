@@ -8,6 +8,7 @@ import { FaAlignJustify } from "react-icons/fa6";
 export default function CoursesLayout({ children }: { children: ReactNode }) {
  const { cid } = useParams();
  const { courses } = useSelector((state: RootState) => state.coursesReducer);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
  const course = courses.find((course: any) => course._id === cid);
  return (
    <div id="wd-courses">

@@ -1,6 +1,7 @@
 import { useState } from "react";
 export default function EventObject() {
   const [event, setEvent] = useState(null);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleClick = (e: any) => {
     e.target = e.target.outerHTML;
     delete e.view;

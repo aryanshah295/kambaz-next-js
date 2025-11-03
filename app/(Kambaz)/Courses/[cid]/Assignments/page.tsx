@@ -25,6 +25,7 @@ const formatDateToMonthDayYear = (dateString: string) => {
 export default function Assignments() {
   const { cid } = useParams();
   const { assignments } = useSelector(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (state: any) => state.assignmentsReducer
   );
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ export default function Assignments() {
   const [aid, setAid] = useState<string>("");
 
   const { currentUser } = useSelector(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (state: any) => state.accountReducer
   );
   return (
@@ -57,7 +59,9 @@ export default function Assignments() {
           </div>
           <ListGroup className="wd-assignment-list rounded-0">
             {assignments
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
               .filter((assignment: any) => assignment.course === cid)
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               .map((assignment: any) => (
                 <ListGroup.Item
                   key={assignment._id}
@@ -109,11 +113,13 @@ export default function Assignments() {
         dialogTitle="Delete Assignment"
         assignmentName={
           assignments.find(
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             (a: any) => a._id === aid
           )?.title || ""
         }
         deleteAssignment={() =>
           dispatch(
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             deleteAssignment(assignments.find((a: any) => a._id === aid))
           )
         }

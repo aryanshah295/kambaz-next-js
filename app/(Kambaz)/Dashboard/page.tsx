@@ -19,8 +19,10 @@ import { addNewCourse, deleteCourse, updateCourse } from "../Courses/reducer";
 import { addEnrollment, removeEnrollment } from "./Enrollments/reducer";
 import { redirect } from "next/navigation";
 export default function Dashboard() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { courses } = useSelector((state: any) => state.coursesReducer);
   const dispatch = useDispatch();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [course, setCourse] = useState<any>({
     _id: "0",
     name: "New Course",
@@ -30,6 +32,7 @@ export default function Dashboard() {
     image: "/images/reactjs.png",
     description: "New Description",
   });
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { currentUser } = useSelector((state: any) => state.accountReducer);
   if (!currentUser) {
     redirect("/Account/Signin");
@@ -39,6 +42,7 @@ export default function Dashboard() {
 
   const [showEnrollments, setShowEnrollments] = useState(false);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { enrollments } = useSelector((state: any) => state.enrollmentsReducer);
   return (
     <Container id="wd-dashboard">
@@ -103,8 +107,10 @@ export default function Dashboard() {
       <h2 id="wd-dashboard-published">
         Published Courses (
         {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           courses.filter((course: any) =>
             enrollments.some(
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               (enrollment: any) =>
                 enrollment.course === course._id &&
                 enrollment.user === currentUser._id
@@ -127,15 +133,18 @@ export default function Dashboard() {
       <div id="wd-dashboard-courses">
         <Row xs={1} md={5} className="g-4">
           {courses
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             .filter((course: any) =>
               showEnrollments
                 ? true
                 : enrollments.some(
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     (enrollment: any) =>
                       enrollment.user === currentUser._id &&
                       enrollment.course === course._id
                   )
             )
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             .map((course: any) => (
               <Col
                 className="wd-dashboard-course"
@@ -149,6 +158,7 @@ export default function Dashboard() {
                     onClick={(e) => {
                       if (
                         !enrollments.some(
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
                           (enrollment: any) =>
                             enrollment.user === currentUser._id &&
                             enrollment.course === course._id
@@ -179,6 +189,7 @@ export default function Dashboard() {
                       )}
                       {showEnrollments &&
                         !enrollments.some(
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
                           (enrollment: any) =>
                             enrollment.user === currentUser._id &&
                             enrollment.course === course._id
@@ -201,6 +212,7 @@ export default function Dashboard() {
                         )}
                       {showEnrollments &&
                         enrollments.some(
+                          // eslint-disable-next-line @typescript-eslint/no-explicit-any
                           (enrollment: any) =>
                             enrollment.user === currentUser._id &&
                             enrollment.course === course._id
@@ -212,6 +224,7 @@ export default function Dashboard() {
                               dispatch(
                                 removeEnrollment(
                                   enrollments.find(
+                                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                                     (enrollment: any) =>
                                       enrollment.user === currentUser._id &&
                                       enrollment.course === course._id

@@ -20,13 +20,15 @@ export default function AssignmentEditor() {
   const { cid, aid } = useParams();
   const dispatch = useDispatch();
   const { assignments } = useSelector(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (state: any) => state.assignmentsReducer
   );
-
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const assignment = assignments.find((a: any) => a._id === aid);
   const editMode = assignment ? true : false;
 
   const { currentUser } = useSelector(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (state: any) => state.accountReducer
   );
   const viewMode = currentUser.role === "STUDENT" ? true : false;

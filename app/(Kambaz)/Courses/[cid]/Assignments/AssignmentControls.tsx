@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
 export default function AssignmentControls() {
   const { currentUser } = useSelector(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (state: any) => state.accountReducer
   );
   return (
