@@ -1,58 +1,73 @@
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body * {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 @media (min-width: 768px) {
-  #wd-kambaz .wd-main-content-offset {
-    padding-left: 140px !important;
-  }
+    #wd-kambaz .wd-main-content-offset {
+        padding-left: 140px !important;
+    }
 }
-.wd-dashboard-course {
-  width: 300px;
-}
-#wd-dashboard-title {
-  font-size: 3rem;
-}
-.wd-dashboard-course-description {
-  height: 100px;
-}
+
 .list-group.wd > .list-group-item.active {
-  color: black;
-  background-color: white;
-  border-left: 3px solid black !important;
+    color: black;
+    background-color: white;
+    border-left: 3px solid black !important;
 }
+
 .btn-secondary {
-  --bs-btn-color: #000 !important;
-  --bs-btn-bg: #c7cdd1 !important;
-  --bs-btn-border-color: #c7cdd1 !important;
-  --bs-btn-hover-color: #fff !important;
+    --bs-btn-color: #000 !important;
+    --bs-btn-bg: #c7cdd1 !important;
+    --bs-btn-border-color: #c7cdd1 !important;
+    --bs-btn-hover-color: #fff !important;
 }
+
 .bg-secondary {
-  --bs-secondary-rgb: 199, 205, 209;
+    --bs-secondary-rgb: 199, 205, 209;
 }
+
 .list-group-item {
-  --bs-list-group-border-color: gray;
-}
-.wd-lesson,
-.wd-assignment-item {
-  border-left: 5px solid green !important;
-}
-@media (min-width: 768px) {
-  .wd-assignment-details-label {
-    text-align: right;
-  }
+    --bs-list-group-border-color: gray;
 }
 
-#wd-courses-title span {
-  font-size: 2rem;
+.wd-lesson {
+    border-left: 3px solid green !important;
 }
 
-#wd-dashboard-published {
-  font-size: 1.5rem;
+.assignment-span-border {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 50px;
+}
+
+.wd-assignment-list-item {
+    border-left: 3px solid green !important;
+}
+
+.border-left-none {
+    border-left: none;
+}
+
+.border-right-none {
+    border-right: none
+}
+
+.assignment-field-border {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #dfe2e6;
+    border-radius: 7px;
+}
+
+.display-block-none {
+    display: none
+}
+
+.display-block-block {
+    display: block
 }

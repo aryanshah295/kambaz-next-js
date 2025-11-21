@@ -1,7 +1,5 @@
 export default function Calendar() {
-    return (
-        <div>
-            <h1>Calendar</h1>
-        </div>
+    return(
+        <h1 id="wd-calendar">Calendar</h1>
     )
 }

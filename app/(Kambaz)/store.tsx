@@ -3,15 +3,16 @@ import coursesReducer from "./Courses/reducer";
 import modulesReducer from "./Courses/[cid]/Modules/reducer";
 import accountReducer from "./Account/reducer";
 import assignmentsReducer from "./Courses/[cid]/Assignments/reducer";
-import enrollmentsReducer from "./Dashboard/Enrollments/reducer";
+import enrollmentsReducer from "./Enrollment/reducer";
+
+
 const store = configureStore({
- reducer: { 
-    coursesReducer,
-    modulesReducer, 
-    accountReducer,
-    assignmentsReducer,
-    enrollmentsReducer,
-},
+    reducer: {coursesReducer,
+            modulesReducer,
+            accountReducer,
+            assignmentsReducer,
+            enrollmentsReducer,
+    },
 });
 export type RootState = ReturnType<typeof store.getState>;
 export default store;

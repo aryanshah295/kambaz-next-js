@@ -1,7 +1,5 @@
 export default function Piazza() {
-    return (
-        <div>
-            <h1>Piazza</h1>
-        </div>
+    return(
+        <h3 id="wd-piazza">Piazza</h3>
     )
 }

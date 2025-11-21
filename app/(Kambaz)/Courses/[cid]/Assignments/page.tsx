@@ -1,129 +1,94 @@
-"use client";
-
+"use client"
 import Link from "next/link";
+import { ListGroup, ListGroupItem } from "react-bootstrap";
+
 import AssignmentControls from "./AssignmentControls";
-import { Badge, Container, ListGroup } from "react-bootstrap";
-import { BsGripVertical } from "react-icons/bs";
 import AssignmentControlButtons from "./AssignmentControlButtons";
-import IndvAssignmentControlButtons from "./IndvAssignmentControlButtons";
-import { MdAssignment } from "react-icons/md";
+import AssignmentListButtons from "./AssignmentListButtons";
+import AssignmentDropButton from "./AssignmentDropButton";
 import { useParams } from "next/navigation";
-import { useDispatch, useSelector } from "react-redux";
-import { FaTrash } from "react-icons/fa6";
-import { deleteAssignment } from "./reducer";
-import { useState } from "react";
-import AssignmentDeleter from "./AssignmentDeleter";
-const formatDateToMonthDayYear = (dateString: string) => {
-  const date = new Date(dateString); // Create a Date object from your date string
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-};
+import * as db from "../../../Database";
+import { RootState } from "../../../store";
+
+import { useSelector, useDispatch } from "react-redux";
+import { setAssignments, addAssignment, deleteAssignment, updateAssignment, editAssignment } from "./reducer";
+import { useState, useEffect } from "react";
+import AssignmentLessonButtons from "./AssignmentLessonButton";
+import LessonControlButtons from "../Modules/LessonControlButtons";
+import * as client from "../../client";
 
 export default function Assignments() {
-  const { cid } = useParams();
-  const { assignments } = useSelector(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (state: any) => state.assignmentsReducer
-  );
-  const dispatch = useDispatch();
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const [aid, setAid] = useState<string>("");
+    const { cid } = useParams();
+    const get_t = (a: Date) => {
+        const date = a.toLocaleDateString('en-US', {month: 'short', day: '2-digit'});
+        const t = a.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true}).substring(0, 5);
+        const z = a.toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true}).substring(6, 8).toLowerCase();
+        return `${date} at ${t}${z}`;
+    }
 
-  const { currentUser } = useSelector(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (state: any) => state.accountReducer
-  );
-  return (
-    <div id="wd-assignments">
-      <AssignmentControls />
-      <br />
-      <br />
-      <br />
-      <ListGroup className="rounded-0" id="wd-assignments">
-        <ListGroup.Item className="wd-assignment p-0 mb-5 fs-5 border-gray">
-          <div className="wd-title p-3 ps-2 bg-secondary">
-            <BsGripVertical className="me-2 fs-3" /> ASSIGNMENTS
-            <AssignmentControlButtons />
-            <Badge
-              bg="light"
-              text="dark"
-              className="me-2 rounded-pill px-3 py-2 float-end"
-            >
-              40% of Total
-            </Badge>
-          </div>
-          <ListGroup className="wd-assignment-list rounded-0">
-            {assignments
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              .filter((assignment: any) => assignment.course === cid)
-              // eslint-disable-next-line @typescript-eslint/no-explicit-any
-              .map((assignment: any) => (
-                <ListGroup.Item
-                  key={assignment._id}
-                  className="wd-assignment-item p-3 ps-1"
-                >
-                  <div className="d-flex align-items-center">
-                    <BsGripVertical className="me-2 fs-3" />
-                    <MdAssignment className="me-2 fs-3" />
-                    <div className="flex-grow-1 p-1">
-                      <Link
-                        href={`/Courses/${cid}/Assignments/${assignment._id}`}
-                        className="text-decoration-none text-dark w-bold fs-5"
-                      >
-                        {assignment.title}
-                      </Link>
-                      <div className="mt-1">
-                        <span className="text-danger me-2">
-                          {assignment.modules
-                            ? assignment.modules.length > 1
-                              ? "Multiple Modules"
-                              : "Single Module"
-                            : "No Module"}
-                        </span>
-                        | Not available until&nbsp;
-                        {formatDateToMonthDayYear(assignment.availableDate)} |
-                        Due&nbsp;
-                        {formatDateToMonthDayYear(assignment.dueDate)} |
-                        {assignment.points} pts
-                      </div>
+    const { currentUser } = useSelector((state: RootState) => state.accountReducer)
+
+    const { assignments } = useSelector((state: RootState) => state.assignmentsReducer);
+    const dispatch = useDispatch();
+
+    const fetchAssignments = async () => {
+        const assignments = await client.findAssignmentsForCourse(String(cid));
+        dispatch(setAssignments(assignments));
+    }
+
+    const onDeleteAssignment = async (assignmentId: string) => {
+        await client.deleteAssignment(assignmentId);
+        dispatch(setAssignments([...assignments.filter((assignment: any) => assignment._id !== assignmentId)]))
+    }
+
+    let open = "block"
+
+    if (currentUser?.role !== "FACULTY") {
+        open = "none"
+    }
+
+    useEffect(() => {
+        fetchAssignments();
+    }, [])
+
+    return (
+        <div id="wd-assignments">
+            <AssignmentControls
+                assignmentCId={cid} show={open}
+            /><br /><br /><br /><br />
+            <ListGroup className="rounded-0" id="wd-assignment-list">
+                <ListGroupItem className="p-0 mb-5 fs-5 border-gray">
+                    <div className="p-3 ps-2 pb-4 pt-4 bg-secondary d-flex align-items-center justify-content-between">
+                        <div>
+                            <AssignmentDropButton />
+                            <span id="wd-assignments-title" className="fs-4"><b>ASSIGNMENTS</b></span> 
+                        </div>
+                        <AssignmentControlButtons />
                     </div>
-                    {currentUser.role === "FACULTY" && (
-                      <FaTrash
-                        className="text-danger me-2 float-end"
-                        onClick={() => {
-                          setAid(assignment._id);
-                          handleShow();
-                        }}
-                      />
-                    )}
-                  </div>
-                </ListGroup.Item>
-              ))}
-          </ListGroup>
-        </ListGroup.Item>
-      </ListGroup>
-      <AssignmentDeleter
-        show={show}
-        handleClose={handleClose}
-        dialogTitle="Delete Assignment"
-        assignmentName={
-          assignments.find(
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            (a: any) => a._id === aid
-          )?.title || ""
-        }
-        deleteAssignment={() =>
-          dispatch(
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            deleteAssignment(assignments.find((a: any) => a._id === aid))
-          )
-        }
-      />
-    </div>
-  );
+
+                    <ListGroup className="rounded-0">
+                        {assignments
+                            .filter((assignment) => assignment.course === cid)
+                            .map((assignment) => (
+                                <ListGroupItem key={assignment._id} className="wd-assignment-list-item p-3 ps-1 d-flex justify-content-between align-items-center">
+                                    <div className="d-flex align-items-center">
+                                        <AssignmentListButtons />
+                                        <div className="ms-3 me-5">
+                                            <Link onClick={() => dispatch(editAssignment(assignment._id))} href={`/Courses/${cid}/Assignments/${assignment._id}`} className="wd-assignment-link text-black text-decoration-none">
+                                                <b>{assignment.title}</b> <br />
+                                            </Link>
+                                            <span className="fs-6 mb-0"><span className="text-danger">Multiple Modules</span> | <b>Not available until </b> 
+                                                  {get_t(new Date(assignment.available))} | <b>Due</b> {get_t(new Date(assignment.due))} | {assignment.points} pts</span>
+                                        </div>
+                                    </div>
+                                    <AssignmentLessonButtons assignmentId={assignment._id} 
+                                        deleteAssignment={(assignmentId) => {onDeleteAssignment(assignmentId)}} deleteShow={open}/>
+                                </ListGroupItem>
+                            ))}
+                    </ListGroup>
+                </ListGroupItem>
+            </ListGroup>
+
+        </div>
+    )
 }

@@ -1,8 +1,5 @@
 export default function Inbox() {
-    return (
-        <div>
-            <h1>Inbox
-            </h1>
-        </div>
+    return(
+        <h1 id="wd-inbox">Inbox</h1>
     )
 }

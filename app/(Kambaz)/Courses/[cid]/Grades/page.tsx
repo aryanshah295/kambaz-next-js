@@ -1,7 +1,5 @@
 export default function Grades() {
-    return (
-        <div>
-            <h1>Grades</h1>
-        </div>
+    return(
+        <h3 id="wd-grades">Grades</h3>
     )
 }
