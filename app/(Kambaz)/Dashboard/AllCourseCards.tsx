@@ -28,7 +28,7 @@ export default function AllCourseCards({userId} : {
                     console.error(error);
                 }
             };
-
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const [nmcourses, setnotmycourse] = useState<any>([]);
         
         const fetchNotCourses = async () => {
@@ -83,6 +83,7 @@ export default function AllCourseCards({userId} : {
         <Row xs={1} md={5} className="g-4">
         {
             courses
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 .map((course: any) => (
                     <Col key={course._id} className="wd-dashboard-course" style={{ width: "300px "}}>
                         <Card>
@@ -111,6 +112,7 @@ export default function AllCourseCards({userId} : {
 
         {   
             nmcourses
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 ?.map((course: any) => (
                     <Col key={course._id} className="wd-dashboard-course" style={{ width: "300px "}}>
                         <Card>

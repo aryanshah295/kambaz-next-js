@@ -19,7 +19,7 @@ export default function Dashboard() {
     const { enrollments } = useSelector((state: RootState) => state.enrollmentsReducer);
     const [filterEnrollment, setFilterEnrollment ] = useState(true);
     const dispatch = useDispatch();
-
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [course, setCourse] = useState<any>({
         _id: "0", name: "New Course", number: "New Number",
         startDate: "2023-09-10", endDate: "2023-12-15",
@@ -65,11 +65,13 @@ export default function Dashboard() {
 
     const onDeleteCourse = async (courseId: string) => {
         const status = await client.deleteCourse(courseId);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         dispatch(setCourses(courses.filter((course: any) => course._id !== courseId)));
     };
 
     const onUpdateCourse = async () => {
         await client.updateCourse(course);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         dispatch(setCourses(courses.map((c: any) => {
             if (c._id === course._id) {return course;}
             else { return c;}
@@ -116,6 +118,7 @@ export default function Dashboard() {
                             <div>
                             <h2 id="wd-dashboard-published">Published Courses ({(enrollments.filter((e) => e.user === currentUser?._id)).length})</h2>
                             <Row xs={1} md={5} className="g-4">
+                                {/* // eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                                 {courses.map((course: any) => (
                                     <Col key={course?._id} className="wd-dashboard-course" style={{ width: "300px "}}>
                                             <Card>
@@ -167,6 +170,7 @@ export default function Dashboard() {
                                 <h2 id="wd-dashboard-published">Published Courses ({(enrollments.filter((e) => e.user === currentUser?._id)).length})</h2><hr />
                                 <Row xs={1} md={5} className="g-4">
                                     {courses
+                                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                                         .map((course: any) => (
                                             course !== undefined ? 
                                             <Col key={course._id} className="wd-dashboard-course" style={{ width: "300px "}}>
