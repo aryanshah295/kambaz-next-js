@@ -6,11 +6,11 @@ export default function HttpClient() {
   const [welcomeOnLoad, setWelcomeOnLoad] = useState("");
 
   const fetchWelcomeOnClick = async () => {
-    const message = await client.fetchWelcomeMessage();
+    const message = await client.fetchWelcomeMessage() as "";
     setWelcomeOnClick(message);
   };
   const fetchWelcomeOnLoad = async () => {
-    const welcome = await client.fetchWelcomeMessage();
+    const welcome = await client.fetchWelcomeMessage() as "";
     setWelcomeOnLoad(welcome);
   };
   useEffect(() => {
