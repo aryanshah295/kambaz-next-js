@@ -28,7 +28,7 @@ export default function WorkingWithArraysAsynchronously() {
     }
   };
   const createNewTodo = async () => {
-    const todos = await client.createNewTodo();
+    const todos = await client.createNewTodo() as [];
     setTodos(todos);
   };
   const postNewTodo = async () => {
@@ -39,12 +39,12 @@ export default function WorkingWithArraysAsynchronously() {
     setTodos([...todos, newTodo]);  // Append to existing array
   };
   const fetchTodos = async () => {
-    const todos = await client.fetchTodos();
+    const todos = await client.fetchTodos() as [];
     setTodos(todos);
   };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const removeTodo = async (todo: any) => {
-    const updatedTodos = await client.removeTodo(todo);
+    const updatedTodos = await client.removeTodo(todo) as [];
     setTodos(updatedTodos);
   };
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
