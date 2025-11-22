@@ -39,8 +39,8 @@ export default function Dashboard() {
 
     const fetchNotCourses = async () => {
         try {
-            const notcourses = await client.findNotMyCourses();
-            setnotmycourse(notcourses);
+            const notcourses = await client.findNotMyCourses() as [];
+            setnotmycourse(notcourses)
         } catch (error) {
             console.error(error);
         }
