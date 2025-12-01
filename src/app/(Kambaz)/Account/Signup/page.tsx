@@ -12,7 +12,7 @@ export default function Signup() {
   const dispatch = useDispatch();
 
   const signup = async () => {
-    const currentUser = await client.signup(user);
+    const currentUser = await client.signup(user) as any;
     dispatch(setCurrentUser(currentUser));
     redirect("/Account/Profile");
   };

@@ -14,14 +14,14 @@ export default function Users() {
   const { uid } = useParams();
 
   const fetchUsers = async () => {
-    const users = await client.findAllUsers();
+    const users = await client.findAllUsers() as [];
     setUsers(users);
   };
 
   const filterUsersByRole = async (role: string) => {
     setRole(role);
     if (role) {
-      const users = await client.findUsersByRole(role);
+      const users = await client.findUsersByRole(role) as [];
       setUsers(users);
     } else {
       fetchUsers();
@@ -31,7 +31,7 @@ export default function Users() {
   const filterUsersByName = async (name: string) => {
     setName(name);
     if (name) {
-      const users = await client.findUsersByPartialName(name);
+      const users = await client.findUsersByPartialName(name) as [];
       setUsers(users);
     } else {
       fetchUsers();

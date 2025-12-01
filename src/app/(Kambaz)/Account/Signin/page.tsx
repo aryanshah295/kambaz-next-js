@@ -17,7 +17,7 @@ export default function Signin() {
   const router = useRouter();
 
   const signin = async () => {
-    const user = await client.signin(credentials);
+    const user = await client.signin(credentials) as any;
     if (!user) return;
     dispatch(setCurrentUser(user));
     redirect("/Dashboard");
