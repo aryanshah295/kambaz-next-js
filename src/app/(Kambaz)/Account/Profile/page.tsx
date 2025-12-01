@@ -21,7 +21,7 @@ export default function Profile() {
   };
 
   const updateProfile = async () => {
-    const updatedProfile = await client.updateUser(profile);
+    const updatedProfile = await client.updateUser(profile) as null;
     dispatch(setCurrentUser(updatedProfile));
   };
 
