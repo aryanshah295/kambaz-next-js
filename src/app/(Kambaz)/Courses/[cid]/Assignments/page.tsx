@@ -53,7 +53,7 @@ export default function Assignments() {
       const fetchAssignments = async () => {
         if (!cid || Array.isArray(cid)) return;
         try {
-          const fetchedAssignments = await client.findAssignmentsForCourse(cid);
+          const fetchedAssignments = await client.findAssignmentsForCourse(cid) as [];
           dispatch(setAssignments(fetchedAssignments));
         } catch (error) {
           console.error(error);

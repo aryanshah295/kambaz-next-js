@@ -31,7 +31,7 @@ export default function PeopleTable() {
     try {
       const courseUsers = await client.findUsersForCourse(cid);
       console.log("Fetched users for course:", cid, courseUsers);
-      setUsers(courseUsers || []);
+      setUsers(Array.isArray(courseUsers) ? courseUsers : []);
     } catch (error) {
       console.error("Error fetching users:", error);
     }
@@ -79,7 +79,7 @@ export default function PeopleTable() {
   const handleCreateUser = async () => {
     if (!cid || Array.isArray(cid)) return;
     try {
-      const createdUser = await userClient.createUser(newUser);
+      const createdUser = await userClient.createUser(newUser) as any;
       // Enroll the new user in the current course
       await client.enrollUserInCourseByFaculty(cid, createdUser._id);
       
@@ -106,7 +106,7 @@ export default function PeopleTable() {
   const handleUpdateUser = async () => {
     if (!editingUser) return;
     try {
-      const updatedUser = await userClient.updateUser(editingUser);
+      const updatedUser = await userClient.updateUser(editingUser) as any;
       setUsers(users.map((u) => (u._id === updatedUser._id ? updatedUser : u)));
       setShowEditModal(false);
       setEditingUser(null);

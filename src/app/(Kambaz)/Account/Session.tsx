@@ -10,7 +10,7 @@ export default function Session({ children }: { children: any }) {
 
   const fetchProfile = async () => {
     try {
-      const currentUser = await client.profile();
+      const currentUser = await client.profile() as null;
       dispatch(setCurrentUser(currentUser));
     } catch (err: any) {
       // Silently handle 401 errors (user not logged in)

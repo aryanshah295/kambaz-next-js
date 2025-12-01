@@ -61,7 +61,7 @@ export default function AssignmentPage() {
           dueOn: dueOn || null,
           availableOn: availableOn || null,
           availableUntil: availableUntil || null,
-        });
+        }) as any;
         dispatch(addAssignment(newAssignment));
     } else if (existingAssignment) {
       // Update existing assignment
@@ -73,7 +73,7 @@ export default function AssignmentPage() {
           dueOn: dueOn || null,
           availableOn: availableOn || null,
           availableUntil: availableUntil || null,
-        });
+        }) as any;
         dispatch(updateAssignment(updatedAssignment));
     }
 
